@@ -11,19 +11,25 @@ const NavBar = () => {
   return (
     <>
       <Navbar className="fixed-top" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="/">Task Manager</Navbar.Brand>
-          { taskLoading || isLoading ? <Spinner className="mx-3" animation="grow" variant="danger" /> : <></>}
-          { user ? <h6 className="text-white">{"Logged as " + user.nickname}</h6> : <></>}     
+        <Container className="d-flex justify-content-arround">
+          <div className="d-flex align-items-center justify-content-arround">
+            <Navbar.Brand href="/">Task Manager</Navbar.Brand>
+            {user ? <h6 className="text-white mb-0">{"Logged as " + user.nickname}</h6> : <></>}
+          </div>
+          <div className="d-flex align-items-center justify-content-arround">
+          <Navbar.Brand>
+            {taskLoading || isLoading ? <Spinner className="mx-3" size="sm" animation="grow" variant="danger" /> : <></>}
+          </Navbar.Brand>
           {
-            !isAuthenticated ?
-              <Button variant="success" onClick={() => loginWithRedirect()}>
-                Log In
-              </Button> : 
-              <Button variant="danger" onClick={() => logout({ returnTo: window.location.origin })}>
-                Log Out
-              </Button>
-          }
+              !isAuthenticated ?
+                <Button variant="success" onClick={() => loginWithRedirect()}>
+                  Log In
+                </Button> :
+                <Button variant="danger" onClick={() => logout({ returnTo: window.location.origin })}>
+                  Log Out
+                </Button>
+            }
+          </div>
         </Container>
       </Navbar>
     </>
