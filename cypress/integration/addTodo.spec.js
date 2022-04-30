@@ -4,7 +4,7 @@ context("Index page", () => {
 /*     beforeEach(() => {
     }) */
     
-    it("Add todo", () => {
+    it("Login and then Add Todo", () => {
         cy.visit("http://localhost:3000")
         const title = 'Testing adding todos with Cypress'
         const description = 'A test for cypress'

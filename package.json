@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "cypress:open": "cypress open"
+    "test": "jest ./tests/api/route.test.js",
+    "cypress:open": "cypress open",
+    "cypress:test": "start-server-and-test dev 3000 cypress:open"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.10.0",
